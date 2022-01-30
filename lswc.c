@@ -1,6 +1,7 @@
 // Caleb Knight
 // CS 344
 // Project 4
+// Lswc
 
 #include <stdio.h>   // printf perror
 #include <stdlib.h>  // exit
