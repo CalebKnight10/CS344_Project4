@@ -20,8 +20,6 @@ int main(int argc, char *argv[])
 	}
 
 	int redir_fd = open(argv[1], O_RDWR | O_CREAT | O_TRUNC, 0666); // opens file specified from command with Read and Write permission
-   // ftruncate(redir_fd, 0); //Deletes any contents in the file
-
 
 	int fds[2];  // File desciptors, 0 is read end, 1 is write end
 	pipe(fds);   // Create pipe
