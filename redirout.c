@@ -10,20 +10,28 @@
 #include <fcntl.h>  //open
 
 
+int check_argc(int argc) 
+{
+	if(argc < 3) {
+		printf("\nToo few arguments: Expect 3\n");
+		exit(1);		
+	}
+	return 0;
+}
+
+
 int main(int argc, char *argv[])
 {
 	const int BUFFER_SIZE = 2048;
 
-	if(argc < 3) {
-		printf("\nToo few arguments: Expect 3\n");
-		exit(1);
-	}
+	check_argc(argc);
 
 	int redir_fd = open(argv[1], O_RDWR | O_CREAT | O_TRUNC, 0666); // opens file specified from command with Read and Write permission
 
 	int fds[2];  // File desciptors, 0 is read end, 1 is write end
 	pipe(fds);   // Create pipe
 	int pid = fork(); // used to fork the parent and get a child
+
 
 	// child stuff
 	if(pid == 0) {
